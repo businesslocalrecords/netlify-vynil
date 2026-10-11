@@ -1,5 +1,5 @@
 [build]
-  command = "npm install --include=dev && npm run build"
+  command = "npm install --include=dev && npx vinxl build"
   publish = ".output/public"
 
 [build.environment]

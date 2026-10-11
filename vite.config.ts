@@ -12,6 +12,10 @@ export default defineConfig({
     server: { entry: "server" },
   },
   vite: {
-    plugins: [],
+    resolve: {
+      alias: {
+        "node:async_hooks": "/src/stubs/async-hooks.ts",
+      },
+    },
   },
 });

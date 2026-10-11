@@ -1,7 +1,6 @@
 [build]
-  command = "npm install && npm run build"
+  command = "npm install --include=dev && npm run build"
   publish = ".output/public"
 
 [build.environment]
-  NODE_ENV = "production"
-  NPM_FLAGS = "--include=dev"
+  NODE_ENV = "development"

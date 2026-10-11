@@ -5,17 +5,13 @@
 //     React/TanStack dedupe, error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import netlify from "@netlify/vite-plugin-tanstack-start";
 
 export default defineConfig({
+  plugins: [netlify()],
+  nitro: false, // The Netlify adapter generates the SSR deployment output.
   tanstackStart: {
     // Redirect TanStack Start's server entry to our SSR wrapper
     server: { entry: "server" },
-  },
-  vite: {
-    resolve: {
-      alias: {
-        "node:async_hooks": "/src/stubs/async-hooks.ts",
-      },
-    },
   },
 });
